@@ -78,22 +78,27 @@ public class SkyScrapersPermutations {
     /**
      * Returns a number of permutations for a specific clue
      * @param clue
-     * @return Returns a number of permutations for a specific clue
+     * @return Returns a number of permutations for a specific clue.
+     * Returns 0 if no such clue exists.
      */
     public int getPermutationsForClueCount(int clue) {
         if(cluePermutationList.containsKey(clue))
             return cluePermutationList.get(clue).size();
-        throw new IllegalArgumentException();
+        return 0;
     }
 
     /**
      * Returns a permutation for a given clue at a given index
      * @param clue - a clue
      * @param index - an index
-     * @return Returns a permutation for a given clue at a given index
+     * @return Returns a permutation for a given clue at a given index.
+     * Return null if index >= permutation count for a given clue or no such clue exists.
      */
     public List<Integer> getPermutationsForClueAtIndex(int clue, int index) {
-        return deepClone(cluePermutationList.get(clue).get(index));
+        if(index < getPermutationsForClueCount(clue))
+            return deepClone(cluePermutationList.get(clue).get(index));
+
+        return null;
     }
 
     /*
