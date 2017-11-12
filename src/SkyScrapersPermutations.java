@@ -16,7 +16,7 @@ import java.util.TreeMap;
  * For example, if max = 3, then class represents all permutations of three skyscrapers: 1 floor high, 2 floors high and 3 floors high</p>
  * <p>
  * <p><b>A clue</b> is the number of skyscrapers that you can see in a row from the outside.
- * For exmaple for permutation (2,1,3) the clue is 2</p>
+ * For example for permutation (2,1,3) the clue is 2</p>
  */
 public class SkyScrapersPermutations {
 
@@ -40,7 +40,9 @@ public class SkyScrapersPermutations {
     //  each permutation.size == maxHeight
     //  number of all permutations for all clues == (maxHeight!)
     // TODO checkRep()
-
+    private void checkRep() {
+        assert cluePermutationList.size() == maxHeight;
+    }
     /**
      * Constructs SkyScrapersPermutations for given maximum skyscraper height.
      * Calculates all possible skyscraper permutations for all possible visibiity clues.
@@ -145,6 +147,8 @@ public class SkyScrapersPermutations {
             } else
                 permsForClue.add(perm);
         }
+
+        checkRep();
 
     }
 
