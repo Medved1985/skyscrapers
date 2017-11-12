@@ -42,6 +42,10 @@ public class SkyScrapersPermutations {
     // TODO checkRep()
     private void checkRep() {
         assert cluePermutationList.size() == maxHeight;
+        for (Map.Entry<Integer, List<List<Integer>>> permutation:
+                cluePermutationList.entrySet()) {
+            assert permutation.getValue().size() == maxHeight;
+        }
     }
     /**
      * Constructs SkyScrapersPermutations for given maximum skyscraper height.
